@@ -1,0 +1,44 @@
+spring:
+  application:
+    name: kafka-integration-app
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] [%thread] [%logger]: %msg%n"
+  level:
+    org.apache.camel: INFO
+
+---
+spring:
+  profiles: development
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+
+quartz2:
+  initialDelay: 10000
+  repetionCount: 1
+  
+kafka:
+  outbound:
+    endpoint: "kafka:${topicName}?brokers=localhost:9092"
+  
+  inbound:
+     endpoint: "kafka:${topicName}?brokers=localhost:9092"
+
+thread-pooling:
+  core-pool-size: 25
+  max-pool-size: 200
+
+server:
+  tomcat:
+    accept-count: 100
+    max-connections: 500
+    max-threads: 200
+
+topicName: ramesh-topic
+maxMessagesPerTask: 10
+msgCount: 10
