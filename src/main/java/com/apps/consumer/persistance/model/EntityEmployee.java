@@ -1,4 +1,4 @@
-package com.apps.kafkaIntegration.persistance.model;
+package com.apps.consumer.persistance.model;
 
 import  javax.persistence.Column;
 import  javax.persistence.Entity;

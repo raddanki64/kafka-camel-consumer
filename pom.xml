@@ -12,12 +12,12 @@
     </parent>
     
     <groupId>com.apps</groupId>
-    <artifactId>kafka-integration-app</artifactId>
+    <artifactId>kafka-camel-consumer</artifactId>
     <version>1.0.1</version>
     <packaging>jar</packaging>
 
-    <name>Kafka Integration Service</name>
-    <description>Kafka integration application</description>
+    <name>Kafka Consumer Service</name>
+    <description>Kafka consumer application</description>
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -27,41 +27,37 @@
         <camel.version>2.22.2</camel.version>
         <spring.kafka.version>2.9.2</spring.kafka.version>
         <camel.kafka.version>2.25.4</camel.kafka.version>
-        <javafaker.version>0.12</javafaker.version>
     </properties>    
 
     <dependencies>
-        <!-- Spring dependencies -->
+        <!-- Spring starter modules -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.kafka</groupId>
-            <artifactId>spring-kafka</artifactId>
-            <version>${spring.kafka.version}</version>
         </dependency>
         
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>        
-
-        <!--  Camel spring dependencies -->
-        <dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-quartz2-starter</artifactId>
-            <version>${camel.version}</version>
-        </dependency>
-
-        <!-- Camel base modules -->
-        <dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-quartz2</artifactId>
-            <version>${camel.version}</version>
         </dependency>
         
+        <!-- Spring dependencies -->
+        
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
+            <version>${spring.kafka.version}</version>
+        </dependency>
+
+        <!--  Camel starter modules (need at least one) -->
+
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-kafka-starter</artifactId>
+            <version>${camel.version}</version>
+        </dependency>
+
+        <!-- Camel dependencies -->
 		<dependency>
     		<groupId>org.apache.camel</groupId>
     		<artifactId>camel-jackson</artifactId>
@@ -72,15 +68,15 @@
     		<groupId>org.apache.camel</groupId>
     		<artifactId>camel-jpa</artifactId>
     		<version>${camel.version}</version>
-  		</dependency>		     
+  		</dependency>     
 
-        <!-- Other third party modules -->
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-kafka</artifactId>
             <version>${camel.kafka.version}</version>
-        </dependency>
-
+        </dependency>  		
+  		
+        <!-- Other third party modules -->
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
@@ -96,12 +92,6 @@
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-core</artifactId>
             <scope>runtime</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>com.github.javafaker</groupId>
-            <artifactId>javafaker</artifactId>
-            <version>${javafaker.version}</version>
         </dependency>
         
         <dependency>

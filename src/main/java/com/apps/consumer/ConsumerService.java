@@ -1,11 +1,11 @@
-package com.apps.kafkaIntegration;
+package com.apps.consumer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class IntegrationService {
+public class ConsumerService {
 	public static void main(String[] args) {
-	    SpringApplication.run(IntegrationService.class, args);
+	    SpringApplication.run(ConsumerService.class, args);
 	}
 }

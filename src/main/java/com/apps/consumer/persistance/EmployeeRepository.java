@@ -1,6 +1,6 @@
-package com.apps.kafkaIntegration.persistance;
+package com.apps.consumer.persistance;
 
-import  com.apps.kafkaIntegration.persistance.model.EntityEmployee;
+import  com.apps.consumer.persistance.model.EntityEmployee;
 
 import  org.springframework.data.repository.CrudRepository;
 
